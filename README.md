@@ -1,4 +1,4 @@
-# [React Unit Test using Jest and Enzyme](http://learning-zone.github.io/react-unit-test)
+# React Unit Test using Jest and Enzyme
 
 <img src="assets/test-react.png" alt="Testing React using Jest and Enzyme" width="800px" />
 
@@ -82,7 +82,7 @@ npm install gh-pages --save-dev
 The first property we need to add at the top level `homepage` second we will define this as a string and the value will be `http://{username}.github.io/{repo-name}` {username} is your GitHub username, and {repo-name} is the name of the GitHub repository you created it will look like this:
 
 ```bash
-"homepage": "http://learning-zone.github.io/testing-react-with-jest-and-enzyme"
+"homepage": "http://learning-zone.github.io/react-unit-test"
 ```
 
 Second in the existing scripts property we to need to add predeploy and deploy.
@@ -97,7 +97,7 @@ Second in the existing scripts property we to need to add predeploy and deploy.
 
 **Step 03: Create a Github repository and initialize it**
 
-Now, create a remote GitHub repository with your app name and go back initialize this `git init` add it as remote `git remote add origin git@github.com:learning-zone/testing-react-with-jest-and-enzyme.git`
+Now, create a remote GitHub repository with your app name and go back initialize this `git init` add it as remote `git remote add origin git@github.com:learning-zone/react-unit-test.git`
 
 **Step 04: Deploy to GitHub Pages**
 
