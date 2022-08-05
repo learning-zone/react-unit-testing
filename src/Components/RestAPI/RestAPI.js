@@ -10,23 +10,21 @@ export default class RestAPI extends Component {
     this.state = {
         results: [],
         columns: [
-          { name: 'Name', selector: 'name', sortable: true },
-          { name: 'Email', selector: 'email', sortable: true  },
-          { name: 'Phone', selector: 'phone', sortable: true, right: true }
+          { name: 'Name', selector: row => row.name, sortable: true },
+          { name: 'Email', selector: row => row.email, sortable: true  },
+          { name: 'Phone', selector: row => row.phone, sortable: true, right: true }
         ]
     }
   }
   
-  componentDidMount() {
-    return axios.get(`https://jsonplaceholder.typicode.com/users`)
-      .then(response => {
-        const results = response.data
-        //console.log(results)
-        this.setState({ results })
-      })
-      .catch(error => {
-        //console.log(error)
-      })
+  async componentDidMount() {
+    try {
+      const response = await axios.get(`https://jsonplaceholder.typicode.com/users`)
+      const results = response.data
+      this.setState({ results })
+    } catch (error) { 
+      console.log(error);
+    }
   }
 
   render() {
@@ -37,6 +35,7 @@ export default class RestAPI extends Component {
           title=''
           columns={this.state.columns}
           data={this.state.results}
+          selectableRows
         />
       </Fragment>
     )
