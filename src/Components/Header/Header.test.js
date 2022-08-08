@@ -1,6 +1,7 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-import Header from './Header'
+import React from 'react';
+import { mount } from 'enzyme';
+import { render, fireEvent, screen } from "@testing-library/react";
+import Header from './Header';
 
 /**
  * shallow():- method is used to render the single component that we are testing. 
@@ -21,17 +22,17 @@ describe('Header Component', () => {
 
     let wrapper
     beforeEach(() => {
-        wrapper = shallow(<Header />)
+        wrapper = render(<Header />);
     })
 
-    test('render without errors', () => {
-       let component = wrapper.find(`[data-test='menu-icon']`)
-       expect(component.length).toBe(1)
+    test('should check the menu icon', () => {
+       const component = screen.getByTestId("menu-icon");
+       expect(component);
     })
 
-    test('title', () => {
-       let title = wrapper.find(`[data-test='menu-title']`).text()
-       expect(title).toMatch('Testing React App')
+    test('should check the header component title', () => {
+        const title = screen.getByTestId("menu-title").text;
+       expect(title).toMatch('React Unit Testing with Jest and Enzyme')
     })
 
 })

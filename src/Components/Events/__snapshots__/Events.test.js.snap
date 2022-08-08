@@ -9,17 +9,18 @@ exports[`Events Component Matches the snapshot 1`] = `
   >
     Event & Snapshot Test
   </h1>
-  <div
+  <h2
     data-test="counter-value"
   >
     0
-  </div>
+  </h2>
   <button
-    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-sghohy-MuiButtonBase-root-MuiButton-root"
     data-test="increment-btn"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
+    onContextMenu={[Function]}
     onDragLeave={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
@@ -33,21 +34,16 @@ exports[`Events Component Matches the snapshot 1`] = `
     tabIndex={0}
     type="button"
   >
-    <span
-      className="MuiButton-label"
-    >
-      Increment
-    </span>
+    Increment
   </button>
-  <br />
-   
-  <br />
+   
   <button
-    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
+    className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-sghohy-MuiButtonBase-root-MuiButton-root"
     data-test="decrement-btn"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
+    onContextMenu={[Function]}
     onDragLeave={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
@@ -61,11 +57,7 @@ exports[`Events Component Matches the snapshot 1`] = `
     tabIndex={0}
     type="button"
   >
-    <span
-      className="MuiButton-label"
-    >
-      Decrement
-    </span>
+    Decrement
   </button>
 </div>
 `;

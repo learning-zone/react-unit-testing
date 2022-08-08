@@ -20,7 +20,7 @@ const styles = () => ({
   },
 });
 
-const ButtonAppBar = (props) => {
+const Header = (props) => {
 
   const { classes } = props;
 
@@ -28,14 +28,14 @@ const ButtonAppBar = (props) => {
     <div className={classes.root}>
       <AppBar position='static'>
         <Toolbar>
-          <IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='menu' data-test='menu-icon'>
+          <IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='menu' data-testid='menu-icon'>
             <MenuIcon />
           </IconButton>
-          <Typography variant='h6' className={classes.title} data-test='menu-title'>React Unit Testing with Jest and Enzyme</Typography>
+          <Typography variant='h6' className={classes.title} data-testid='menu-title'>React Unit Testing with Jest and Enzyme</Typography>
           <Button color='inherit'>Login</Button>
         </Toolbar>
       </AppBar>
     </div>
   )
 }
-export default withStyles(styles)(ButtonAppBar);
+export default withStyles(styles)(Header);

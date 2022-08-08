@@ -20,7 +20,7 @@ export default class RestAPI extends Component {
   async componentDidMount() {
     try {
       const response = await axios.get(`https://jsonplaceholder.typicode.com/users`)
-      const results = response.data
+      const results = response ? response.data : "";
       this.setState({ results })
     } catch (error) { 
       console.log(error);
