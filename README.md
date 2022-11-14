@@ -1,5 +1,7 @@
 # React Unit Test using Jest and Enzyme
 
+<br/>
+
 <p align="center">
   <img src="assets/test-react.png" alt="Testing React using Jest and Enzyme" width="800px" />
 </p>
