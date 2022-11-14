@@ -1,4 +1,4 @@
-# React Unit Test using Jest and Enzyme
+# React Unit Testing using Jest and Enzyme
 
 <br/>
 
