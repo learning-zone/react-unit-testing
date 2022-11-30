@@ -1,9 +1,11 @@
 # React Unit Testing using Jest and Enzyme
 
+> *Click &#9733; if you like the project. Your contributions are heartily ♡ welcome.*
+
 <br/>
 
 <p align="center">
-  <img src="assets/test-react.png" alt="Testing React using Jest and Enzyme" width="800px" />
+  <img src="assets/test-react.png" alt="Testing React using Jest and Enzyme" width="750px" />
 </p>
 
 ## Installation
