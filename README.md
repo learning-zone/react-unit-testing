@@ -5,7 +5,7 @@
 <br/>
 
 <p align="center">
-  <img src="assets/test-react.png" alt="Testing React using Jest and Enzyme" width="750px" />
+  <img src="assets/test-react.png" alt="Testing React using Jest and Enzyme" width="800px" />
 </p>
 
 ## Installation
