@@ -1,4 +1,4 @@
-# React Unit Testing using Jest and Enzyme
+# React Unit Testing using Jest
 
 > *Click &#9733; if you like the project. Your contributions are heartily ♡ welcome.*
 
@@ -94,7 +94,6 @@ npm run test -- --coverage --watchAll=false
 
 - [React](https://create-react-app.dev/docs/getting-started/)
 - [Jest](https://jestjs.io/docs/en/getting-started.html)
-- [Enzyme](https://enzymejs.github.io/enzyme/docs/installation/react-16.html)
 - [Material-UI](https://material-ui.com/getting-started/installation/)
 - [Axios](https://github.com/axios/axios)
 - [React Testing Library](https://reactjs.org/docs/testing-recipes.html)
