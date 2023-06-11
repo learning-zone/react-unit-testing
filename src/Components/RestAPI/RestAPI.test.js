@@ -1,35 +1,32 @@
-import React from 'react'
-import { shallow } from 'enzyme'
+import { cleanup, render } from "@testing-library/react";
 import RestAPI from './RestAPI'
 import mockAxios from 'axios'
+afterEach(cleanup);
 
-jest.mock('axios')
+jest.mock('axios');
+
+/**
+ * __mocks__ : mock data directory
+ */
 
 describe('RestAPI Component', () => {
- 
-    let wrapper
-    beforeEach(() => {
-        wrapper = shallow(<RestAPI />)
-    })
 
-    test('render without errors', () => {
-        expect(wrapper.exists()).toBe(true)
-    })
-    
-    test('should call a fetchData function', () => {
+    test('Should call fetchAllUsers function', () => {
+        render(<RestAPI />);
         const getSpy = jest.spyOn(mockAxios, 'get')
         expect(getSpy).toBeCalled()
     })
-    
-    test('fetched successfully datat from an api', () => {
-        const response = [{data: [{'name': 'Alex', 'email': 'alex@gmail.com', 'phone': '54614612152'}]}]
+
+    test('fetch successfully data from an api', () => {
+        render(<RestAPI />);
+        const response = [{ data: [{ id: 100, name: 'Leanne Graham', email: 'leanne@gmail.com', phone: 54614612152 }] }]
+
         mockAxios.get.mockResolvedValue(response)
     })
-  
-    test('fetches data with error', () => {
-        const response = [{error: 'API Error'}]
-        mockAxios.get.mockRejectedValue(response)
-    })
 
-})
- 
+    test('fetch data with an error', () => {
+        render(<RestAPI />);
+        const response = [{ error: 'API Error' }]
+        mockAxios.get.mockRejectedValue(response)
+    });
+});

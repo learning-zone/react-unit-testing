@@ -1,41 +1,32 @@
-import React from 'react'
-import { withStyles } from '@mui/styles';
-import AppBar from '@mui/material/AppBar'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
-import IconButton from '@mui/material/IconButton'
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-
-const styles = () => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: '20px',
-  },
-  title: {
-    flexGrow: 1,
-  },
-});
-
-const Header = (props) => {
-
-  const { classes } = props;
-
+export default function Header() {
   return (
-    <div className={classes.root}>
-      <AppBar position='static'>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
         <Toolbar>
-          <IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='menu' data-testid='menu-icon'>
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
             <MenuIcon />
           </IconButton>
-          <Typography variant='h6' className={classes.title} data-testid='menu-title'>React Unit Testing with Jest and Enzyme</Typography>
-          <Button color='inherit'>Login</Button>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            React Unit Testing using Jest
+          </Typography>
+          <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-    </div>
-  )
+    </Box>
+  );
 }
-export default withStyles(styles)(Header);

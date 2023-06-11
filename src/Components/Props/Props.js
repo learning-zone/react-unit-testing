@@ -1,23 +1,27 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
-class Props extends Component {
+export default function Props(props) {
 
-    render() {
-        const { header, desc } = this.props
+    const { header, description } = props;
+    const { color, setColor } = useState("red");
 
-        return (
-            <div data-test='PropsComponent'>
-                <h1 data-test='header'>{header}</h1>
-                <p data-test='desc'>{desc}</p>
+    return (
+        <>
+            <h1 aria-label="header">{header}</h1>
+            <p aria-label="description" style={{ color: color }}>{description}</p>
+
+            <div>
+                <input
+                    type="checkbox"
+                    name="checkbox"
+                    onChange={(e) => setColor(e.target.checked ? "green" : "red")} />
             </div>
-        )
-    }
+        </>
+    )
 }
 
 Props.propTypes = {
-   header: PropTypes.string,
-   desc: PropTypes.string
+    header: PropTypes.string,
+    description: PropTypes.string
 }
-
-export default Props

@@ -1,26 +1,35 @@
 import React from 'react'
-import Header from './Components/Header/Header'
-import Props from './Components/Props/Props'
-import Events from './Components/Events/Events'
-import RestAPI from './Components/RestAPI/RestAPI'
+import Header from './components/Header/Header'
+import Props from './components/Props/Props'
+import Events from './components/Events/Events'
+import Snapshot from './components/Snapshot/Snapshot'
+import RestAPI from './components/RestAPI/RestAPI'
 import './App.scss'
-
 
 
 export default function App() {
   return (
     <div className='App'>
-      {/** Component Test */}
+      {/** Component Testing */}
       <Header />
+
       <section className='main'>
-        {/** Props Test */}
-        <Props header='Props Test' desc='Validating props in React !' />
-        <br/><hr/>
-        {/** Events and Snapshot Test */}
+
+        {/** Props Testing */}
+        <Props header='Props Testing' desc='Validating props in React !' />
+        <br /><hr />
+
+        {/** Events Testing */}
         <Events />
-        <br/><hr/>
-        {/** RestAPI Test */}
+        <br /><hr />
+
+        {/** Snapshot Testing */}
+        <Snapshot />
+        <br /><hr />
+
+        {/** RestAPI Testing */}
         <RestAPI />
+
       </section>
     </div>
   );

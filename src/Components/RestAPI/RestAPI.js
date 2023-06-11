@@ -1,43 +1,37 @@
-import React, { Component, Fragment } from 'react'
-import DataTable from 'react-data-table-component'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
+export default function RestAPI() {
 
-export default class RestAPI extends Component {
+  const [users, setUsers] = useState(null);
+  const [error, setError] = useState(null);
 
-  constructor(props) {
-    super(props)
-    this.state = {
-        results: [],
-        columns: [
-          { name: 'Name', selector: row => row.name, sortable: true },
-          { name: 'Email', selector: row => row.email, sortable: true  },
-          { name: 'Phone', selector: row => row.phone, sortable: true, right: true }
-        ]
-    }
-  }
-  
-  async componentDidMount() {
+  useEffect(() => {
+    fetchAllUsers();
+  }, []);
+
+  const fetchAllUsers = async () => {
     try {
       const response = await axios.get(`https://jsonplaceholder.typicode.com/users`)
-      const results = response ? response.data : "";
-      this.setState({ results })
-    } catch (error) { 
-      console.log(error);
+      setUsers(response.data)
+    } catch (error) {
+      console.log("Something went wrong!");
     }
   }
 
-  render() {
-    return (
-      <Fragment>
-        <h1>RestAPI Test</h1>
-        <DataTable
-          title=''
-          columns={this.state.columns}
-          data={this.state.results}
-          selectableRows
-        />
-      </Fragment>
-    )
-  }
+  return (
+    <>
+      <h1>List of Users</h1>
+      {error && <div>{error}</div>}
+      {users ? (
+        <ul>
+          {users.map((user) => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>No users found</p>
+      )}
+    </>
+  )
 }

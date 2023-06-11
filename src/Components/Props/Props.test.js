@@ -1,36 +1,38 @@
-import React from 'react'
-import { shallow } from 'enzyme'
-import Props from './Props'
+import { cleanup, render, screen, fireEvent } from "@testing-library/react";
+import Props from './Props';
+afterEach(cleanup);
 
 /**
  * propTypes() is used runtime type checking for React props and similar objects.
  * 
  */
 describe('Props Component', () => {
- 
-    let wrapper
-    beforeEach(() => {
-        const props = {
-           header: 'Test Header',
-           desc: 'Test Desc'
-        }
-        wrapper = shallow(<Props {...props} />)
+
+    test('Should have a title', () => {
+        render(<props header="Props Title" description="Props Description" />);
+        expect(screen.getByText(/Props Title/i)).toBeInTheDocument();
     })
 
-    test('Should render without errors', () => {
-       let component = wrapper.find(`[data-test='PropsComponent']`)
-       expect(component.length).toBe(1)
+    test('Should have a description', () => {
+        render(<props header="Props Title" description="Props Description" />);
+        expect(screen.getByText(/Props Description/i)).toBeInTheDocument();
     })
 
-    test('Should have title', () => {
-        let title = wrapper.find(`[data-test='header']`)
-        expect(title.length).toBe(1)
+    test('Description Initial Color', () => {
+        render(<props />);
+        expect(screen.getByTLabelText("description")).toHaveStyle({ color: "red" });
     })
 
-    test('Should have description',  ()=> {
-        let desc = wrapper.find(`[data-test='desc']`)
-        expect(desc.length).toBe(1)
+    test('Checkbox Initial Condition', () => {
+        render(<props />);
+        const checkbox = screen.getByRole('checkbox');
+        expect(checkbox).not.toBeChecked();
     })
 
+    test('Description color after checkbox checked', () => {
+        render(<props />);
+        const checkbox = screen.getByRole('checkbox');
+        fireEvent.click(checkbox);
+        expect(screen.getByLabelText("description")).toHaveStyle({ color: "green" });
+    })
 })
- 
